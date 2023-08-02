@@ -19,6 +19,96 @@ licious_route.get("/",async(req,res)=>{
         }
 
 })
+licious_route.get("/chicken",async(req,res)=>{
+    console.log("geting requset")
+     let query=req.query
+    console.log(query)
+
+        try {
+            let data=await licious_product_model.aggregate([{$match:{name:"chicken",...query}}])
+            res.send(data)
+            
+        } catch (error) {
+            
+            res.send({"mas":"data not found"})
+        }
+
+})
+licious_route.get("/fish",async(req,res)=>{
+    console.log("geting requset")
+     let query=req.query
+    console.log(query)
+
+        try {
+            let data=await licious_product_model.aggregate([{$match:{name:"fish",...query}}])
+            res.send(data)
+            
+        } catch (error) {
+            
+            res.send({"mas":"data not found"})
+        }
+
+})
+licious_route.get("/mutton",async(req,res)=>{
+    console.log("geting requset")
+     let query=req.query
+    console.log(query)
+
+        try {
+            let data=await licious_product_model.aggregate([{$match:{name:"mutton",...query}}])
+            res.send(data)
+            
+        } catch (error) {
+            
+            res.send({"mas":"data not found"})
+        }
+
+})
+licious_route.get("/ready_to_cook",async(req,res)=>{
+    console.log("geting requset")
+     let query=req.query
+    console.log(query)
+
+        try {
+            let data=await licious_product_model.aggregate([{$match:{name:"Ready to Cook",...query}}])
+            res.send(data)
+            
+        } catch (error) {
+            
+            res.send({"mas":"data not found"})
+        }
+
+})
+licious_route.get("/prawns",async(req,res)=>{
+    console.log("geting requset")
+     let query=req.query
+    console.log(query)
+
+        try {
+            let data=await licious_product_model.aggregate([{$match:{name:"Prawns",...query}}])
+            res.send(data)
+            
+        } catch (error) {
+            
+            res.send({"mas":"data not found"})
+        }
+
+})
+licious_route.get("/eggs",async(req,res)=>{
+    console.log("geting requset")
+     let query=req.query
+    console.log(query)
+
+        try {
+            let data=await licious_product_model.aggregate([{$match:{name:"Eggs",...query}}])
+            res.send(data)
+            
+        } catch (error) {
+            
+            res.send({"mas":"data not found"})
+        }
+
+})
 licious_route.get("/search",async(req,res)=>{
     console.log("geting requset")
      let {texts}=req.body
