@@ -19,6 +19,22 @@ licious_route.get("/",async(req,res)=>{
         }
 
 })
+licious_route.get("/search",async(req,res)=>{
+    console.log("geting requset")
+     let {texts}=req.body
+    console.log(texts)
+
+        try {
+
+            let data=await licious_product_model.aggregate([{$match:{$or:[{name:{$regex:texts}},{title:{$regex:texts}},{discription:{$regex:texts}}]}}])
+            res.send(data)
+            
+        } catch (error) {
+            
+            res.send({"mas":"data not found"})
+        }
+
+})
 
 licious_route.post("/add",async(req,res)=>{
 
