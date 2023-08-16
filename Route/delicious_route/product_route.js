@@ -10,7 +10,7 @@ licious_route.get("/",async(req,res)=>{
     console.log(query)
 
         try {
-            let data=await licious_product_model.aggregate([{$match:query}])
+            let data=await licious_product_model.aggregate([{$match:query},{$limit:30}])
             res.send(data)
             
         } catch (error) {
